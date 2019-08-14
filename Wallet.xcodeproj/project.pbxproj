@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */; };
-		FD8339F122F91A26006DCFE0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8339F022F91A26006DCFE0 /* ViewController.swift */; };
 		FD8339F422F91A26006DCFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F222F91A26006DCFE0 /* Main.storyboard */; };
 		FD8339F622F91A27006DCFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F522F91A27006DCFE0 /* Assets.xcassets */; };
 		FD8339F922F91A27006DCFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F722F91A27006DCFE0 /* LaunchScreen.storyboard */; };
+		FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCEEF732304794D00194B3A /* WalletTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD8339EB22F91A26006DCFE0 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD8339F022F91A26006DCFE0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD8339F322F91A26006DCFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD8339F522F91A27006DCFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD8339F822F91A27006DCFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD8339FA22F91A27006DCFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDCEEF732304794D00194B3A /* WalletTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */,
-				FD8339F022F91A26006DCFE0 /* ViewController.swift */,
+				FDCEEF732304794D00194B3A /* WalletTableVC.swift */,
 				FD8339F222F91A26006DCFE0 /* Main.storyboard */,
 				FD8339F522F91A27006DCFE0 /* Assets.xcassets */,
 				FD8339F722F91A27006DCFE0 /* LaunchScreen.storyboard */,
@@ -135,7 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD8339F122F91A26006DCFE0 /* ViewController.swift in Sources */,
+				FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */,
 				FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
