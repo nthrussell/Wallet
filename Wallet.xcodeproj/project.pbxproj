@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		155DFF45B7D145668626F04B /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38224EB48F2EF23E29600019 /* Pods_Wallet.framework */; };
+		FD79AACD2305241300A71C53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AACC2305241300A71C53 /* Constants.swift */; };
+		FD79AACF23052B6F00A71C53 /* walletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AACE23052B6F00A71C53 /* walletManager.swift */; };
+		FD79AAD123052B8100A71C53 /* walletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AAD023052B8100A71C53 /* walletModel.swift */; };
 		FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */; };
 		FD8339F422F91A26006DCFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F222F91A26006DCFE0 /* Main.storyboard */; };
 		FD8339F622F91A27006DCFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F522F91A27006DCFE0 /* Assets.xcassets */; };
@@ -19,6 +22,9 @@
 		38224EB48F2EF23E29600019 /* Pods_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310885E3CBB4A5646841E27 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		BBB9D268242E8BF18DFB0A29 /* Pods-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.release.xcconfig"; path = "Target Support Files/Pods-Wallet/Pods-Wallet.release.xcconfig"; sourceTree = "<group>"; };
+		FD79AACC2305241300A71C53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FD79AACE23052B6F00A71C53 /* walletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletManager.swift; sourceTree = "<group>"; };
+		FD79AAD023052B8100A71C53 /* walletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletModel.swift; sourceTree = "<group>"; };
 		FD8339EB22F91A26006DCFE0 /* Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD8339F322F91A26006DCFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +52,6 @@
 				8310885E3CBB4A5646841E27 /* Pods-Wallet.debug.xcconfig */,
 				BBB9D268242E8BF18DFB0A29 /* Pods-Wallet.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,7 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */,
+				FD79AACC2305241300A71C53 /* Constants.swift */,
+				FD79AAD023052B8100A71C53 /* walletModel.swift */,
 				FDCEEF732304794D00194B3A /* WalletTableVC.swift */,
+				FD79AACE23052B6F00A71C53 /* walletManager.swift */,
 				FD8339F222F91A26006DCFE0 /* Main.storyboard */,
 				FD8339F522F91A27006DCFE0 /* Assets.xcassets */,
 				FD8339F722F91A27006DCFE0 /* LaunchScreen.storyboard */,
@@ -211,8 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD79AAD123052B8100A71C53 /* walletModel.swift in Sources */,
 				FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */,
 				FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */,
+				FD79AACF23052B6F00A71C53 /* walletManager.swift in Sources */,
+				FD79AACD2305241300A71C53 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
