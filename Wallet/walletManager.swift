@@ -66,9 +66,10 @@ class WalletManager {
         
         let value = json.data(using: String.Encoding.utf8).flatMap({try? JSON(data: $0)}) ?? JSON(NSNull())
         //print("myValue: \(value)")
-        let data = value["data"].dictionary
-        //print("myData: \(data)")
-        for (key, value) in data! {
+        guard let data = value["data"].dictionary else {return .failure(WalletAPIManagerError.network(error: response.result.error!))}
+        let sortedData = data.sorted(by: { $0 < $1 })
+        print("myData: \(sortedData)")
+        for (key, value) in sortedData {
             print("key:\(key): value:\(value)")
             walletArray.append(WalletModel(key: key, value: value)!)
         }

@@ -30,7 +30,8 @@ class WalletTableVC: UITableViewController {
         tableViewData = [cellData(opened: false, title: "title1", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title2", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
-                         cellData(opened: false, title: "title4", value: "10.5", sectionData: ["cell1", "cell2", "cell3"])]
+                         cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
+                         cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"])]
     }
     
     func getWallet() {
@@ -56,7 +57,11 @@ class WalletTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if walletModel[section].opened == true {
-            return tableViewData[section].sectionData.count + 1
+            if tableViewData.indices.contains(section) {
+                return tableViewData[section].sectionData.count + 1
+            } else {
+                return 1
+            }
         } else {
             return 1
         }
