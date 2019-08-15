@@ -58,8 +58,8 @@ class WalletTableVC: UITableViewController {
             }
             if let fetchedTransactionData = result.value {
                 self.walletTransactionModel = fetchedTransactionData
-                print("walletTransactionModel: \(fetchedTransactionData)")
             }
+            print("walletTransactionModel: \(self.walletTransactionModel)")
             self.tableView.reloadData()
         }
     }
@@ -74,7 +74,7 @@ class WalletTableVC: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if walletModel[section].opened == true {
             if tableViewData.indices.contains(section) {
-                return tableViewData[section].sectionData.count + 1
+                return walletTransactionModel.count + 1
             } else {
                 return 1
             }
@@ -93,7 +93,8 @@ class WalletTableVC: UITableViewController {
             
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath)
-            cell.textLabel?.text = tableViewData[indexPath.section].sectionData[indexPath.row - 1]
+            let data = walletTransactionModel[indexPath.row - 1]
+            cell.textLabel?.text = "\(data.slug): \(data.name): \(data.amount)"
             return cell
         }
     }
