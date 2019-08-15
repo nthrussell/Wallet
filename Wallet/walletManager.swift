@@ -31,7 +31,6 @@ class WalletManager {
             
             let result = self.checkForWalletError(response: response)
             completionHandler(result)
-            print("myResult: \(result)")
         }
     }
     
@@ -41,13 +40,8 @@ class WalletManager {
                        "Content-Type": "application/x-www-form-urlencoded"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseString { response in
             
-            let value = response.result.value
-            let json = JSON(value)
-            print("WalletTransaction: \(json)")
-            
             let result = self.checkForWalletTransactionError(response: response)
-//            completionHandler(result)
-            print("myResult: \(result)")
+            completionHandler(result)
         }
         
     }
@@ -64,7 +58,6 @@ class WalletManager {
         
         // JSON Serialization Error
         guard let json = response.result.value else {
-            print("did not get userState object as JSON from API")
             return .failure(WalletAPIManagerError.objectSerialization(reason: "Did not get JSON dictionary in response for WalletModel"))
         }
         var walletArray = [WalletModel]()
@@ -73,7 +66,6 @@ class WalletManager {
         //print("myValue: \(value)")
         guard let data = value["data"].dictionary else {return .failure(WalletAPIManagerError.network(error: response.result.error!))}
         let sortedData = data.sorted(by: { $0 < $1 })
-        print("myData: \(sortedData)")
         for (key, value) in sortedData {
             print("key:\(key): value:\(value)")
             walletArray.append(WalletModel(key: key, value: value)!)
@@ -87,14 +79,13 @@ class WalletManager {
         
         // For Network Error
         guard response.result.error == nil else {
-            print("Wallet network error:")
+            print("Wallet transaction network error:")
             print(response.result.error!)
             return .failure(WalletAPIManagerError.network(error: response.result.error!))
         }
         
         // JSON Serialization Error
         guard let json = response.result.value else {
-            print("did not get userState object as JSON from API")
             return .failure(WalletAPIManagerError.objectSerialization(reason: "Did not get JSON dictionary in response for WalletModel"))
         }
         var walletTransactionArray = [WalletTransactionModel]()
@@ -106,8 +97,6 @@ class WalletManager {
         for item in transaction {
             walletTransactionArray.append(WalletTransactionModel(item: item)!)
         }
-        
-        print("myTransactionData: \(walletTransactionArray)")
         
         return .success(walletTransactionArray)
         

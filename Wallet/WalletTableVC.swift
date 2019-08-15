@@ -56,10 +56,10 @@ class WalletTableVC: UITableViewController {
                 print("walletTransaction.error:\(String(describing: result.error))")
                 return
             }
-            if let fetchedData = result.value {
-                self.walletTransactionModel = fetchedData
+            if let fetchedTransactionData = result.value {
+                self.walletTransactionModel = fetchedTransactionData
+                print("walletTransactionModel: \(fetchedTransactionData)")
             }
-            print("walletTransactionModel: \(self.walletTransactionModel)")
             self.tableView.reloadData()
         }
     }
