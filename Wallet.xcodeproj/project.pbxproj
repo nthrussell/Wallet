@@ -15,6 +15,7 @@
 		FD8339F422F91A26006DCFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F222F91A26006DCFE0 /* Main.storyboard */; };
 		FD8339F622F91A27006DCFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F522F91A27006DCFE0 /* Assets.xcassets */; };
 		FD8339F922F91A27006DCFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8339F722F91A27006DCFE0 /* LaunchScreen.storyboard */; };
+		FDB7A1C92305E8BD006B230D /* walletTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB7A1C82305E8BD006B230D /* walletTransactionModel.swift */; };
 		FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDCEEF732304794D00194B3A /* WalletTableVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		FD8339F522F91A27006DCFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD8339F822F91A27006DCFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD8339FA22F91A27006DCFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDB7A1C82305E8BD006B230D /* walletTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletTransactionModel.swift; sourceTree = "<group>"; };
 		FDCEEF732304794D00194B3A /* WalletTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTableVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				FD8339EE22F91A26006DCFE0 /* AppDelegate.swift */,
 				FD79AACC2305241300A71C53 /* Constants.swift */,
 				FD79AAD023052B8100A71C53 /* walletModel.swift */,
+				FDB7A1C82305E8BD006B230D /* walletTransactionModel.swift */,
 				FDCEEF732304794D00194B3A /* WalletTableVC.swift */,
 				FD79AACE23052B6F00A71C53 /* walletManager.swift */,
 				FD8339F222F91A26006DCFE0 /* Main.storyboard */,
@@ -222,6 +225,7 @@
 				FD79AAD123052B8100A71C53 /* walletModel.swift in Sources */,
 				FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */,
 				FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */,
+				FDB7A1C92305E8BD006B230D /* walletTransactionModel.swift in Sources */,
 				FD79AACF23052B6F00A71C53 /* walletManager.swift in Sources */,
 				FD79AACD2305241300A71C53 /* Constants.swift in Sources */,
 			);

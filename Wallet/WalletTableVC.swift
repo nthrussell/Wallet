@@ -19,31 +19,47 @@ struct cellData {
 class WalletTableVC: UITableViewController {
 
     var walletModel = [WalletModel]()
+    var walletTransactionModel = [WalletTransactionModel]()
     var tableViewData = [cellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //WalletManager.sharedInstance.fetchWalletData()
         getWallet()
+        getWalletTransaction()
         
         tableViewData = [cellData(opened: false, title: "title1", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title2", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"])]
+        
     }
     
     func getWallet() {
         WalletManager.sharedInstance.getWalletData { (result) in
             guard result.error == nil else {
-                print("result.error:\(String(describing: result.error))")
+                print("wallet.error:\(String(describing: result.error))")
                 return
             }
             if let fetchedData = result.value {
                 self.walletModel = fetchedData
             }
             print("walletModel: \(self.walletModel)")
+            self.tableView.reloadData()
+        }
+    }
+    
+    func getWalletTransaction() {
+        WalletManager.sharedInstance.getWalletTransaction { (result) in
+            guard result.error == nil else {
+                print("walletTransaction.error:\(String(describing: result.error))")
+                return
+            }
+            if let fetchedData = result.value {
+                self.walletTransactionModel = fetchedData
+            }
+            print("walletTransactionModel: \(self.walletTransactionModel)")
             self.tableView.reloadData()
         }
     }
