@@ -14,42 +14,48 @@ struct cellData {
     var value = String()
     var sectionData = [String]()
     
-//    init(title: String, value: String) {
-//        self.title = title
-//        self.value = value
-//    }
-//
-//    init(sectionData: [String]) {
-//        self.sectionData = sectionData
-//    }
-    
 }
 
 class WalletTableVC: UITableViewController {
 
+    var walletModel = [WalletModel]()
     var tableViewData = [cellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        WalletManager.sharedInstance.getWalletData()
-
+        //WalletManager.sharedInstance.fetchWalletData()
+        getWallet()
+        
         tableViewData = [cellData(opened: false, title: "title1", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title2", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title3", value: "10.5", sectionData: ["cell1", "cell2", "cell3"]),
                          cellData(opened: false, title: "title4", value: "10.5", sectionData: ["cell1", "cell2", "cell3"])]
     }
+    
+    func getWallet() {
+        WalletManager.sharedInstance.getWalletData { (result) in
+            guard result.error == nil else {
+                print("result.error:\(String(describing: result.error))")
+                return
+            }
+            if let fetchedData = result.value {
+                self.walletModel = fetchedData
+            }
+            print("walletModel: \(self.walletModel)")
+            self.tableView.reloadData()
+        }
+    }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return tableViewData.count
+        return walletModel.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if tableViewData[section].opened == true {
+        if walletModel[section].opened == true {
             return tableViewData[section].sectionData.count + 1
         } else {
             return 1
@@ -60,7 +66,8 @@ class WalletTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell1", for: indexPath)
-            cell.textLabel?.text = tableViewData[indexPath.section].title
+            let data = walletModel[indexPath.section]
+            cell.textLabel?.text = "\(data.key): \(data.value)"
             return cell
             
         } else {
@@ -72,12 +79,12 @@ class WalletTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            if tableViewData[indexPath.section].opened == true {
-                tableViewData[indexPath.section].opened = false
+            if walletModel[indexPath.section].opened == true {
+                walletModel[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
             } else {
-                tableViewData[indexPath.section].opened = true
+                walletModel[indexPath.section].opened = true
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
                 }
