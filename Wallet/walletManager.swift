@@ -34,8 +34,8 @@ class WalletManager {
         }
     }
     
-    func getWalletTransaction(completionHandler: @escaping (Result<[WalletTransactionModel]>) -> Void) {
-        let url = "https://api.dev1.opaapp.com/wallet/A"
+    func getWalletTransaction(key: String , completionHandler: @escaping (Result<[WalletTransactionModel]>) -> Void) {
+        let url = "https://api.dev1.opaapp.com/wallet/\(key)"
         let headers = ["token": TOKEN,
                        "Content-Type": "application/x-www-form-urlencoded"]
         Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: headers).responseString { response in

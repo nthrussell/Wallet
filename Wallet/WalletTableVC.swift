@@ -8,25 +8,15 @@
 
 import UIKit
 
-struct cellData {
-    var opened = Bool()
-    var title = String()
-    var value = String()
-    var sectionData = [String]()
-    
-}
-
 class WalletTableVC: UITableViewController {
 
     var walletModel = [WalletModel]()
     var walletTransactionModel = [WalletTransactionModel]()
-    var tableViewData = [cellData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         getWallet()
-        getWalletTransaction()
         
     }
     
@@ -44,8 +34,10 @@ class WalletTableVC: UITableViewController {
         }
     }
     
-    func getWalletTransaction() {
-        WalletManager.sharedInstance.getWalletTransaction { (result) in
+    func getWalletTransaction(key: String, completionHandler:
+        
+        @escaping () -> Void) {
+        WalletManager.sharedInstance.getWalletTransaction(key: key) { (result) in
             guard result.error == nil else {
                 print("walletTransaction.error:\(String(describing: result.error))")
                 return
@@ -55,6 +47,7 @@ class WalletTableVC: UITableViewController {
             }
             print("walletTransactionModel: \(self.walletTransactionModel)")
             self.tableView.reloadData()
+            
         }
     }
 
@@ -67,9 +60,27 @@ class WalletTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if walletModel[section].opened == true {
-            if walletTransactionModel.indices.contains(section) {
+            if walletModel[section].key == "A" {
                 return walletTransactionModel.count + 1
-            } else {
+            } else if walletModel[section].key == "B" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "C" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "D" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "E" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "F" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "G" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "H" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "I" {
+                return walletTransactionModel.count + 1
+            } else if walletModel[section].key == "J" {
+                return walletTransactionModel.count + 1
+            }else  {
                 return 1
             }
         } else {
@@ -96,14 +107,19 @@ class WalletTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             if walletModel[indexPath.section].opened == true {
-                walletModel[indexPath.section].opened = false
+                self.walletModel[indexPath.section].opened = false
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
-            } else {
+             
+            } else if walletModel[indexPath.section].opened == false {
                 walletModel[indexPath.section].opened = true
-                let sections = IndexSet.init(integer: indexPath.section)
-                tableView.reloadSections(sections, with: .none)
+                DispatchQueue.main.async {
+                    self.getWalletTransaction(key: self.walletModel[indexPath.section].key, completionHandler: {
+                        let sections = IndexSet.init(integer: indexPath.section)
+                        tableView.reloadSections(sections, with: .none)
+                    })
                 }
+            }
         }
     }
 
