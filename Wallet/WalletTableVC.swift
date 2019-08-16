@@ -12,6 +12,7 @@ class WalletTableVC: UITableViewController {
 
     var walletModel = [WalletModel]()
     var walletTransactionModel = [WalletTransactionModel]()
+    var previouslyClickedSection: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,26 +60,27 @@ class WalletTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        //walletTransactionModel.indices.contains(section)
         if walletModel[section].opened == true {
-            if walletModel[section].key == "A" {
+            if walletModel[section].key.contains("A") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "B" {
+            } else if walletModel[section].key.contains("B") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "C" {
+            } else if walletModel[section].key.contains("C") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "D" {
+            } else if walletModel[section].key.contains("D") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "E" {
+            } else if walletModel[section].key.contains("E") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "F" {
+            } else if walletModel[section].key.contains("F") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "G" {
+            } else if walletModel[section].key.contains("G") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "H" {
+            } else if walletModel[section].key.contains("H") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "I" {
+            } else if walletModel[section].key.contains("I") {
                 return walletTransactionModel.count + 1
-            } else if walletModel[section].key == "J" {
+            } else if walletModel[section].key.contains("J") {
                 return walletTransactionModel.count + 1
             }else  {
                 return 1
@@ -105,6 +107,14 @@ class WalletTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let prev = self.previouslyClickedSection {
+            print("prev: \(prev)")
+            self.walletTransactionModel = []
+            self.walletModel[prev].opened = false
+            let sections = IndexSet.init(integer: prev)
+            tableView.reloadSections(sections, with: .none)
+        }
+        
         if indexPath.row == 0 {
             if walletModel[indexPath.section].opened == true {
                 self.walletModel[indexPath.section].opened = false
@@ -113,6 +123,7 @@ class WalletTableVC: UITableViewController {
              
             } else if walletModel[indexPath.section].opened == false {
                 walletModel[indexPath.section].opened = true
+                self.previouslyClickedSection = indexPath.section
                 DispatchQueue.main.async {
                     self.getWalletTransaction(key: self.walletModel[indexPath.section].key, completionHandler: {
                         let sections = IndexSet.init(integer: indexPath.section)
