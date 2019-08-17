@@ -109,10 +109,12 @@ class WalletTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let prev = self.previouslyClickedSection {
             print("prev: \(prev)")
-            self.walletTransactionModel = []
-            self.walletModel[prev].opened = false
-            let sections = IndexSet.init(integer: prev)
-            tableView.reloadSections(sections, with: .none)
+            if prev != indexPath.section {
+                self.walletTransactionModel = []
+                self.walletModel[prev].opened = false
+                let sections = IndexSet.init(integer: prev)
+                tableView.reloadSections(sections, with: .none)
+            }
         }
         
         if indexPath.row == 0 {
