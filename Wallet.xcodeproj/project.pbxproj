@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		155DFF45B7D145668626F04B /* Pods_Wallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38224EB48F2EF23E29600019 /* Pods_Wallet.framework */; };
+		FD581A6E23083AD900993BBF /* walletCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD581A6D23083AD900993BBF /* walletCell1.swift */; };
 		FD79AACD2305241300A71C53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AACC2305241300A71C53 /* Constants.swift */; };
 		FD79AACF23052B6F00A71C53 /* walletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AACE23052B6F00A71C53 /* walletManager.swift */; };
 		FD79AAD123052B8100A71C53 /* walletModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79AAD023052B8100A71C53 /* walletModel.swift */; };
@@ -23,6 +24,7 @@
 		38224EB48F2EF23E29600019 /* Pods_Wallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8310885E3CBB4A5646841E27 /* Pods-Wallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.debug.xcconfig"; path = "Target Support Files/Pods-Wallet/Pods-Wallet.debug.xcconfig"; sourceTree = "<group>"; };
 		BBB9D268242E8BF18DFB0A29 /* Pods-Wallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wallet.release.xcconfig"; path = "Target Support Files/Pods-Wallet/Pods-Wallet.release.xcconfig"; sourceTree = "<group>"; };
+		FD581A6D23083AD900993BBF /* walletCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletCell1.swift; sourceTree = "<group>"; };
 		FD79AACC2305241300A71C53 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FD79AACE23052B6F00A71C53 /* walletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletManager.swift; sourceTree = "<group>"; };
 		FD79AAD023052B8100A71C53 /* walletModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walletModel.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				FD79AAD023052B8100A71C53 /* walletModel.swift */,
 				FDB7A1C82305E8BD006B230D /* walletTransactionModel.swift */,
 				FDCEEF732304794D00194B3A /* WalletTableVC.swift */,
+				FD581A6D23083AD900993BBF /* walletCell1.swift */,
 				FD79AACE23052B6F00A71C53 /* walletManager.swift */,
 				FD8339F222F91A26006DCFE0 /* Main.storyboard */,
 				FD8339F522F91A27006DCFE0 /* Assets.xcassets */,
@@ -224,6 +227,7 @@
 			files = (
 				FD79AAD123052B8100A71C53 /* walletModel.swift in Sources */,
 				FDCEEF742304794D00194B3A /* WalletTableVC.swift in Sources */,
+				FD581A6E23083AD900993BBF /* walletCell1.swift in Sources */,
 				FD8339EF22F91A26006DCFE0 /* AppDelegate.swift in Sources */,
 				FDB7A1C92305E8BD006B230D /* walletTransactionModel.swift in Sources */,
 				FD79AACF23052B6F00A71C53 /* walletManager.swift in Sources */,

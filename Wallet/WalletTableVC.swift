@@ -93,9 +93,11 @@ class WalletTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell1", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell1", for: indexPath) as! walletCell1
             let data = walletModel[indexPath.section]
-            cell.textLabel?.text = "\(data.key): \(data.value)"
+            //cell.textLabel?.text = "\(data.key): \(data.value)"
+            cell.alphabetImages.image = UIImage(named: "\(data.key)")
+            cell.amountLabel.text = "\(data.value)"
             return cell
             
         } else {
