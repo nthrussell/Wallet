@@ -13,7 +13,7 @@
         <scene sceneID="2al-Qh-dkf">
             <objects>
                 <tableViewController id="0hw-Nj-zDP" customClass="WalletTableVC" customModule="Wallet" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YYa-ql-gGY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YYa-ql-gGY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -22,44 +22,53 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPm-wP-lWi" id="H0c-3k-R8r">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="walletCell1" rowHeight="100" id="xOc-TM-iO1" customClass="walletCell1" customModule="Wallet" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="128" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="walletCell1" rowHeight="102" id="xOc-TM-iO1" customClass="walletCell1" customModule="Wallet" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="128" width="375" height="102"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xOc-TM-iO1" id="YVF-XR-06A">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xOc-TM-iO1" id="YVF-XR-06A">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-gI-3Xy">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="100" id="904-Le-Xog"/>
-                                                <constraint firstAttribute="height" constant="100" id="IR3-zc-Xky"/>
+                                                <constraint firstAttribute="width" constant="100" id="ZSj-Kg-Oat"/>
+                                                <constraint firstAttribute="height" constant="100" id="uB6-8y-f0P"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCu-Kj-Vi4">
-                                            <rect key="frame" x="108" y="20.5" width="251" height="59"/>
+                                            <rect key="frame" x="108" y="21" width="251" height="58"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="jCu-Kj-Vi4" secondAttribute="height" multiplier="251:59" id="8Rm-Yj-0Mq"/>
-                                                <constraint firstAttribute="height" constant="59" id="DjV-Z5-JKf"/>
+                                                <constraint firstAttribute="width" secondItem="jCu-Kj-Vi4" secondAttribute="height" multiplier="251:58" id="mjR-HG-cZK"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6F-YW-7Qz" userLabel="seperatorView">
+                                            <rect key="frame" x="0.0" y="100" width="375" height="1"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="aNK-xM-YcJ"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="jCu-Kj-Vi4" secondAttribute="bottom" constant="20.5" id="27x-8E-8Gu"/>
-                                        <constraint firstAttribute="trailing" secondItem="jCu-Kj-Vi4" secondAttribute="trailing" constant="16" id="2Mc-jU-eaN"/>
-                                        <constraint firstItem="jCu-Kj-Vi4" firstAttribute="leading" secondItem="Be4-gI-3Xy" secondAttribute="trailing" constant="8" id="J5c-KQ-V1Q"/>
-                                        <constraint firstItem="jCu-Kj-Vi4" firstAttribute="top" secondItem="YVF-XR-06A" secondAttribute="top" constant="20" id="OP5-2f-QCQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="Be4-gI-3Xy" secondAttribute="bottom" id="i9g-JC-EDc"/>
-                                        <constraint firstItem="Be4-gI-3Xy" firstAttribute="leading" secondItem="YVF-XR-06A" secondAttribute="leading" id="nU0-V8-dTG"/>
-                                        <constraint firstItem="Be4-gI-3Xy" firstAttribute="top" secondItem="YVF-XR-06A" secondAttribute="top" id="umc-qp-cKv"/>
+                                        <constraint firstAttribute="bottom" secondItem="s6F-YW-7Qz" secondAttribute="bottom" constant="1" id="0xP-C7-0zx"/>
+                                        <constraint firstItem="Be4-gI-3Xy" firstAttribute="leading" secondItem="YVF-XR-06A" secondAttribute="leading" id="2F5-sl-4JP"/>
+                                        <constraint firstItem="jCu-Kj-Vi4" firstAttribute="top" secondItem="YVF-XR-06A" secondAttribute="top" constant="21" id="5YM-p9-7Mz"/>
+                                        <constraint firstItem="jCu-Kj-Vi4" firstAttribute="leading" secondItem="Be4-gI-3Xy" secondAttribute="trailing" constant="8" id="DYx-J8-Xfv"/>
+                                        <constraint firstItem="s6F-YW-7Qz" firstAttribute="top" secondItem="Be4-gI-3Xy" secondAttribute="bottom" id="JKi-9b-9Xz"/>
+                                        <constraint firstAttribute="trailing" secondItem="s6F-YW-7Qz" secondAttribute="trailing" id="Vip-IW-Eaj"/>
+                                        <constraint firstItem="Be4-gI-3Xy" firstAttribute="top" secondItem="YVF-XR-06A" secondAttribute="top" id="avF-tV-gty"/>
+                                        <constraint firstItem="s6F-YW-7Qz" firstAttribute="top" secondItem="jCu-Kj-Vi4" secondAttribute="bottom" constant="21" id="eNg-pm-9eV"/>
+                                        <constraint firstItem="s6F-YW-7Qz" firstAttribute="leading" secondItem="YVF-XR-06A" secondAttribute="leading" id="wd1-oy-Ld1"/>
+                                        <constraint firstAttribute="trailing" secondItem="jCu-Kj-Vi4" secondAttribute="trailing" constant="16" id="wes-r4-mTr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
