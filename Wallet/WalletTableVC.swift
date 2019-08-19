@@ -97,14 +97,24 @@ class WalletTableVC: UITableViewController {
             let data = walletModel[indexPath.section]
             //cell.textLabel?.text = "\(data.key): \(data.value)"
             cell.alphabetImages.image = UIImage(named: "\(data.key)")
-            cell.amountLabel.text = "\(data.value)"
+            let myNumber = doubleToIntWhenDecimalZero(number: data.value)
+            cell.amountLabel.text = "\(myNumber)"
             return cell
             
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath)
             let data = walletTransactionModel[indexPath.row - 1]
-            cell.textLabel?.text = "\(data.slug): \(data.name): \(data.amount)"
+            let myNumber = doubleToIntWhenDecimalZero(number: data.amount)
+            cell.textLabel?.text = "\(data.name) | \(myNumber)"
             return cell
+        }
+    }
+    
+    func doubleToIntWhenDecimalZero(number: Double) -> Any {
+        if number.truncatingRemainder(dividingBy: 1.0) == 0.0 {
+            return Int(number)
+        } else {
+            return number
         }
     }
     
