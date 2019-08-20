@@ -44,8 +44,28 @@ class WalletTableVC: UITableViewController {
                 return
             }
             if let fetchedTransactionData = result.value {
-                self.walletTransactionModel = fetchedTransactionData
+                
+                let reducedData = fetchedTransactionData.reduce( [WalletTransactionModel]()) { (partial, model) in
+                    var partial = partial
+                    
+                    let matchingIndex = partial.firstIndex(where: { (existingModel) -> Bool in
+                        existingModel.slug == model.slug
+                    })
+                    
+                    if let matchingIndex = matchingIndex {
+                        partial[matchingIndex].amount += model.amount
+                    } else {
+                        partial.append(model)
+                    }
+                    
+                    return partial
+                }
+                
+                self.walletTransactionModel = reducedData
+
             }
+            
+            
             print("walletTransactionModel: \(self.walletTransactionModel)")
             self.tableView.reloadData()
             
