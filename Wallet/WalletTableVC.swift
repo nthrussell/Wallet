@@ -125,7 +125,7 @@ class WalletTableVC: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath)
             let data = walletTransactionModel[indexPath.row - 1]
             let myNumber = doubleToIntWhenDecimalZero(number: data.amount)
-            cell.textLabel?.text = "\(data.name) | \(myNumber)"
+            cell.textLabel?.text = "\(data.pos) | \(myNumber)"
             return cell
         }
     }

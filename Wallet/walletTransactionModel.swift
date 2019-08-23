@@ -11,21 +11,21 @@ import SwiftyJSON
 
 class WalletTransactionModel {
     var slug: String
-    var name: String
+    var pos: Int
     var amount: Double
     
-    required init(slug: String, name: String, amount: Double) {
+    required init(slug: String, pos: Int, amount: Double) {
         self.slug = slug
-        self.name = name
+        self.pos = pos
         self.amount = amount
     }
     
     convenience init?(item: JSON) {
         guard let slug = item["slug"].string,
-               let name = item["name"].string,
+               let pos = item["pos"].int,
             let amount = item["amount"].double else { return nil}
         
-        self.init(slug: slug, name: name, amount: amount)
+        self.init(slug: slug, pos: pos, amount: amount)
     }
     
 }
