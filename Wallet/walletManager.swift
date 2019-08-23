@@ -34,7 +34,7 @@ class WalletManager {
         }
     }
     
-    func getWalletTransaction(key: String , completionHandler: @escaping (Result<[WalletTransactionModel]>) -> Void) {
+    func getWalletTransaction(key: String , completionHandler: @escaping (Result<transactionModel>) -> Void) {
         //let url = "https://api.dev1.opaapp.com/wallet/\(key)"
         let url = "https://api.dev1.opaapp.com/wallet2/\(key)?pos=0"
         let headers = ["token": TOKEN,
@@ -76,7 +76,7 @@ class WalletManager {
         
     }
     
-    private func checkForWalletTransactionError(response: DataResponse<String>) -> Result<[WalletTransactionModel]> {
+    private func checkForWalletTransactionError(response: DataResponse<String>) -> Result<transactionModel> {
         
         // For Network Error
         guard response.result.error == nil else {
@@ -89,19 +89,11 @@ class WalletManager {
         guard let json = response.result.value else {
             return .failure(WalletAPIManagerError.objectSerialization(reason: "Did not get JSON dictionary in response for WalletModel"))
         }
-        var walletTransactionArray = [WalletTransactionModel]()
         
         let value = json.data(using: String.Encoding.utf8).flatMap({try? JSON(data: $0)}) ?? JSON(NSNull())
-        //print("myValue: \(value)")
-        guard let data = value["data"].dictionary else {return .failure(WalletAPIManagerError.network(error: response.result.error!))}
-        guard let transaction = data["transaction"]?.array else {return .failure(WalletAPIManagerError.network(error: response.result.error!))}
-        for item in transaction {
-            walletTransactionArray.append(WalletTransactionModel(item: item)!)
-        }
+        print("myValue: \(value)")
         
-        return .success(walletTransactionArray)
-        
+        return .success((transactionModel(item: value) ?? nil)!)
     }
-
     
 }

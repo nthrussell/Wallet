@@ -11,7 +11,7 @@ import UIKit
 class WalletTableVC: UITableViewController {
 
     var walletModel = [WalletModel]()
-    var walletTransactionModel = [WalletTransactionModel]()
+    var myTransactionModel: transactionModel?
     var previouslyClickedSection: Int?
     
     override func viewDidLoad() {
@@ -45,28 +45,28 @@ class WalletTableVC: UITableViewController {
             }
             if let fetchedTransactionData = result.value {
                 
-                let reducedData = fetchedTransactionData.reduce( [WalletTransactionModel]()) { (partial, model) in
-                    var partial = partial
-                    
-                    let matchingIndex = partial.firstIndex(where: { (existingModel) -> Bool in
-                        existingModel.slug == model.slug
-                    })
-                    
-                    if let matchingIndex = matchingIndex {
-                        partial[matchingIndex].amount += model.amount
-                    } else {
-                        partial.append(model)
-                    }
-                    
-                    return partial
-                }
+//                let reducedData = fetchedTransactionData.reduce( [WalletTransactionModel]()) { (partial, model) in
+//                    var partial = partial
+//
+//                    let matchingIndex = partial.firstIndex(where: { (existingModel) -> Bool in
+//                        existingModel.slug == model.slug
+//                    })
+//
+//                    if let matchingIndex = matchingIndex {
+//                        partial[matchingIndex].amount += model.amount
+//                    } else {
+//                        partial.append(model)
+//                    }
+//
+//                    return partial
+//                }
                 
-                self.walletTransactionModel = reducedData
+                self.myTransactionModel = fetchedTransactionData
 
             }
             
             
-            print("walletTransactionModel: \(self.walletTransactionModel)")
+            print("walletTransactionModel: \(self.myTransactionModel)")
             self.tableView.reloadData()
             
         }
@@ -80,28 +80,27 @@ class WalletTableVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //walletTransactionModel.indices.contains(section)
         if walletModel[section].opened == true {
             if walletModel[section].key.contains("A") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("B") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("C") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("D") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("E") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("F") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("G") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("H") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("I") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             } else if walletModel[section].key.contains("J") {
-                return walletTransactionModel.count + 1
+                return (myTransactionModel?.transactionModel.count ?? 0) + 1
             }else  {
                 return 1
             }
@@ -123,14 +122,15 @@ class WalletTableVC: UITableViewController {
             
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath)
-            let data = walletTransactionModel[indexPath.row - 1]
-            let myNumber = doubleToIntWhenDecimalZero(number: data.amount)
-            cell.textLabel?.text = "\(data.pos) | \(myNumber)"
+            let data = myTransactionModel?.transactionModel[indexPath.row - 1]
+            let myNumber = doubleToIntWhenDecimalZero(number: data?.amount ?? 0.0)
+            cell.textLabel?.text = "\(data?.pos ?? 0) | \(myNumber)"
             return cell
         }
     }
     
     func doubleToIntWhenDecimalZero(number: Double) -> Any {
+        //removes decimal from int
         if number.truncatingRemainder(dividingBy: 1.0) == 0.0 {
             return Int(number)
         } else {
@@ -142,7 +142,7 @@ class WalletTableVC: UITableViewController {
         if let prev = self.previouslyClickedSection {
             print("prev: \(prev)")
             if prev != indexPath.section {
-                self.walletTransactionModel = []
+                self.myTransactionModel?.transactionModel = []
                 self.walletModel[prev].opened = false
                 let sections = IndexSet.init(integer: prev)
                 tableView.reloadSections(sections, with: .none)
