@@ -124,7 +124,15 @@ class WalletTableVC: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "walletCell", for: indexPath)
             let data = myTransactionModel?.transactionModel[indexPath.row - 1]
             let myNumber = doubleToIntWhenDecimalZero(number: data?.amount ?? 0.0)
-            cell.textLabel?.text = "\(data?.pos ?? 0) | \(myNumber)"
+            var slugName = ""
+            for item in myTransactionModel!.slugsModel {
+                print("mySlugModelData:\(item.name)")
+                if item.id == data?.slug {
+                    print("\(item.name)")
+                    slugName = item.name
+                }
+            }
+            cell.textLabel?.text = "\(data?.pos ?? 0) | \(slugName) | \(myNumber)"
             return cell
         }
     }
